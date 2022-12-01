@@ -1,18 +1,24 @@
 package com.java21days;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class SimpleTextReader {
     SimpleTextReader(){
         String fileName = getClass().getResource("test.txt").getPath();
         System.out.println(fileName);
-        try (FileReader file = new FileReader(fileName)){
-            System.out.println((char) file.read());
-            System.out.println((char) file.read());
-            System.out.println((char) file.read());
-            System.out.println((char) file.read());
+        try (
+                FileReader file = new FileReader(fileName);
+                BufferedReader buffer = new BufferedReader(file);
+        ){
+            String line;
+            do {
+                line = buffer.readLine();
+                if(line == null){
+                    break;
+                } else {
+                    System.out.println(line);
+                }
+            } while (line != null);
         } catch (FileNotFoundException e){
             System.out.println("Exception: " + e.getMessage());
         } catch (IOException e){
