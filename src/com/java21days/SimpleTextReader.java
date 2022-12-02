@@ -11,7 +11,7 @@ public class SimpleTextReader {
         try (
                 FileReader file = new FileReader(fileName);
                 BufferedReader buffer = new BufferedReader(file);
-        ){
+            ){
             String line;
             do {
 
