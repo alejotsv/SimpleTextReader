@@ -16,6 +16,7 @@ public class SimpleTextWriter {
                 buffer.write(lineNum + ": " + line + "\n");
                 lineNum++;
             }
+            buffer.close();
         } catch (IOException e){
             System.out.println("Exception: " + e.getMessage());
         }
