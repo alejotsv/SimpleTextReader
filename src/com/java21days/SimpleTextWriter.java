@@ -13,7 +13,7 @@ public class SimpleTextWriter {
              ){
             int lineNum = 1;
             for (String line : lines) {
-                buffer.write(lineNum + ": " + line);
+                buffer.write(lineNum + ": " + line + "\n");
                 lineNum++;
             }
         } catch (IOException e){
